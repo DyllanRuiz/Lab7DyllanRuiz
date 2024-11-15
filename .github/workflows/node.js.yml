@@ -45,6 +45,7 @@ jobs:
         commit_message: 'chore: add SBOM file'
         branch: ${{ github.head_ref }}
         files: 'sbom.json'
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     # Ejecutar ESLint
     - name: Run ESLint
