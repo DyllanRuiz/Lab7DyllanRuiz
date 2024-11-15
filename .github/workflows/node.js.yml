@@ -26,12 +26,7 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
 
-    # Instalar Syft usando el script oficial
-    - name: Install Syft
-      run: |
-        curl -sSfL https://github.com/anchore/syft/releases/latest/download/syft-linux-amd64.tar.gz | tar xz -C /usr/local/bin
-
-  # Instalar Syft (si no está disponible en tu CI)
+   # Instalar Syft (si no está disponible en tu CI)
     - name: Install Syft
       run: |
         curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
