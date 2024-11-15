@@ -42,10 +42,10 @@ jobs:
     - name: Commit SBOM file
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
-      commit_message: 'chore: add SBOM file'
-      branch: ${{ github.head_ref }}
-      commit_options: '--no-verify'
-
+        commit_message: 'chore: add SBOM file'
+        branch: ${{ github.head_ref }}
+        files: 'sbom.json'
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     # Ejecutar ESLint
     - name: Run ESLint
@@ -61,3 +61,4 @@ jobs:
       with:
         commit_message: 'chore: lint and format code'
         branch: ${{ github.head_ref }}
+
