@@ -27,6 +27,13 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
 
+      # Instalar Syft
+    - name: Install Syft
+      run: |
+        wget https://github.com/anchore/syft/releases/download/v0.80.1/syft-linux-amd64-v0.80.1.tar.gz
+        tar -xvf syft-linux-amd64-v0.80.1.tar.gz
+        sudo mv syft /usr/local/bin/
+
     # Generación del SBOM
     - name: Generate SBOM
       run: |
