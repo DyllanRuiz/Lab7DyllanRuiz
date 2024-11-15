@@ -29,7 +29,7 @@ jobs:
     # Instalar Syft usando el script oficial
     - name: Install Syft
       run: |
-        curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
+        curl -sSfL https://github.com/anchore/syft/releases/latest/download/syft-linux-amd64.tar.gz | tar xz -C /usr/local/bin
 
     # Generación del SBOM
     - name: Generate SBOM
@@ -43,7 +43,7 @@ jobs:
         commit_message: 'chore: add SBOM file'
         branch: ${{ github.head_ref }}
         files: 'sbom.json'
-         token: ${{ secrets.PAT_TOKEN }}
+        token: ${{ secrets.PAT_TOKEN }}
 
     # Ejecutar ESLint
     - name: Run ESLint
