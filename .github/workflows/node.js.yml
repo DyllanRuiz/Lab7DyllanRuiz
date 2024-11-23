@@ -33,17 +33,3 @@ jobs:
     # Ejecutar Prettier
     - name: Run Prettier
       run: npm run format
-
-    # Commit de los cambios (si ESLint o Prettier modificaron algo)
-    - name: Commit changes
-      uses: stefanzweifel/git-auto-commit-action@v5
-      with:
-        commit_message: 'chore: lint and format code'
-        branch: ${{ github.head_ref }}
-
-    # Instalar y ejecutar Nuclei Vulnerability Scan
-    - name: Nuclei Vulnerability Scan
-      uses: projectdiscovery/nuclei-action@v1
-      with:
-        # Puedes especificar una URL para escanear
-        target: "index.js"
